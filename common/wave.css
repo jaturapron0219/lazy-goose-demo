@@ -1,0 +1,122 @@
+/* =====================================================
+   wave.css — คลื่นสีเขียวด้านบน/ล่าง และเต่าทอง (ทุกหน้า)
+   - กว้างเต็มจอเสมอ ไม่ขาดหาย ทุกขนาดจอ ทั้งแนวตั้งและแนวนอน
+   - ความสูงปรับตามจอ
+===================================================== */
+
+.lg-wave {
+    position: fixed;
+    left: 0;
+    width: 100vw;
+    z-index: 1;
+    pointer-events: none;
+    line-height: 0;
+}
+
+.lg-wave svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.lg-wave .fill {
+    fill: #00bf63;
+}
+
+.lg-wave .edge {
+    fill: none;
+    stroke: #111;
+    stroke-width: 3px;
+    vector-effect: non-scaling-stroke;
+}
+
+.lg-wave.top {
+    top: 0;
+    height: clamp(36px, 10svh, 140px);
+}
+
+.lg-wave.bottom {
+    bottom: 0;
+    height: clamp(30px, 8svh, 120px);
+}
+
+/* เต่าทองเกาะขอบคลื่นด้านบนซ้าย: กึ่งกลางตัวอยู่บนเส้นขอบคลื่นพอดี (แบบใน PDF)
+   - ขอบคลื่นที่ระยะ ~23% ของความกว้างจอ อยู่ที่ประมาณ 97% ของความสูงคลื่น
+   - กึ่งกลางลำตัวอยู่ที่กึ่งกลางรูปเต่าทอง (วาดตามเวกเตอร์ใน PDF) */
+.lg-ladybug {
+    display: block;
+    overflow: visible;
+    --wh: clamp(36px, 10svh, 140px);
+    --bw: clamp(50px, 10.5svh, 124px);
+    position: fixed;
+    top: calc(var(--wh) * 0.97 - var(--bw) * 0.5);
+    left: calc(23vw - var(--bw) * 0.5);
+    width: var(--bw);
+    height: auto;
+    aspect-ratio: 155 / 156;
+    z-index: 1;     /* อยู่หลังกล่องเนื้อหา ไม่บังข้อความ */
+    pointer-events: none;
+    filter: drop-shadow(1px 2px 1.5px rgba(0, 0, 0, 0.25));
+}
+
+/* ซ่อนคลื่นแบบเก่า (ถ้ามีเหลือ) */
+.green-wave,
+.green-wave1 {
+    display: none !important;
+}
+
+/* ดอกเดซี่ 3 ดอก (เวกเตอร์) มุมล่างขวา ยืนอยู่บนคลื่นด้านล่าง แบบใน PDF */
+:root {
+    --bh: clamp(30px, 8svh, 120px);      /* ความสูงคลื่นด้านล่าง */
+    /* ระยะจากขอบล่างจอถึงยอดดอกเดซี่ */
+    --daisy-top: calc(var(--bh) * 0.12 + max(100px, calc(var(--bh) * 2.6)) * 0.564);
+}
+
+.lg-daisies {
+    position: fixed;
+    right: 7vw;
+    bottom: calc(var(--bh) * 0.12);
+    width: max(100px, calc(var(--bh) * 2.6));
+    height: auto;
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* ดอกเดซี่แบบรูปภาพเดิม (ถ้ามีเหลือ) */
+.daisy-container,
+.daisy-bottom {
+    display: none !important;
+}
+
+/* ปุ่มย้อนกลับ/ถัดไปของหน้าเนื้อหา อยู่เหนือดอกเดซี่ ไม่ทับกัน */
+.lesson-nav {
+    margin-bottom: max(10px, calc(var(--daisy-top) + 6px - var(--gap-y, 0px))) !important;
+}
+
+/* หน้าคะแนนท้ายบท: ปุ่มด้านล่างอยู่เหนือดอกเดซี่ */
+.cs-wrap {
+    bottom: calc(var(--daisy-top) + 6px) !important;
+}
+
+/* หน้าที่เต่าทองฝั่งซ้ายไปบังหัวข้อ/เนื้อหา: ย้ายไปเกาะเส้นคลื่นฝั่งขวาแทน (wave.js เป็นตัวเลือกให้) */
+.lg-ladybug.on-right {
+    left: calc(68vw - var(--bw) * 0.5);
+    top: max(2px, calc(var(--wh) * 0.22 - var(--bw) * 0.5));
+}
+
+/* พื้นหลังจุดสีเหลืองต่อเนื่องเต็มจอ ทุกขนาดหน้าจอ
+   (เดิมกรอบเนื้อหาขนาดมือถือมีพื้นจุดของตัวเอง ทำให้ลายจุดตรงกลางไม่ต่อกับด้านข้าง) */
+html,
+body {
+    background-color: #ffe783 !important;
+    background-image: radial-gradient(circle, #fff3b9 2px, transparent 2.6px) !important;
+    background-size: 17px 17px !important;
+    background-position: 0 0 !important;
+    background-attachment: fixed !important;
+}
+
+.game-screen,
+.yellow-field {
+    background: transparent !important;
+}

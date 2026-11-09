@@ -1,0 +1,96 @@
+/* =====================================================
+   progress.css — แถบด่าน 1-5 ของเกมท้ายบท (ทุกบท)
+   - วงกลมเล็กลง เส้นลากยาวจากขอบจอซ้ายถึงขอบจอขวา
+   - ตัวเลขสีขาวขอบดำ และมีรูปห่านอยู่ใต้ด่านปัจจุบัน
+   (ใช้คู่กับ progress.js)
+===================================================== */
+
+.pb-track {
+    position: relative;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+/* เส้นเชื่อม (รวมเส้นหัว-ท้ายที่ยาวถึงขอบจอ) */
+.pb-track .progress-line,
+.pb-track .pb-edge {
+    flex: 1 1 0;
+    min-width: 6px !important;
+    height: 13px !important;
+    background: #fff;
+    border-top: 1.6px solid var(--ink, #111) !important;
+    border-bottom: 1.6px solid var(--ink, #111) !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    box-sizing: border-box;
+}
+
+.pb-track .pb-edge {
+    flex: 0 0 auto;
+}
+
+.pb-track .progress-line.completed,
+.pb-track .pb-edge.completed {
+    background: var(--green, #00bf63);
+}
+
+.pb-track .progress-step {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.pb-track .step-circle {
+    width: 40px !important;
+    height: 40px !important;
+    border: 1.6px solid var(--ink, #111) !important;
+    box-sizing: border-box;
+    font-size: 18px !important;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff !important;
+    -webkit-text-stroke: 2.4px var(--ink, #111);   /* ตัวเลขสีขาว ขอบดำ */
+    paint-order: stroke fill;
+}
+
+.pb-track .step-circle.active {
+    transform: scale(1.12);
+}
+
+/* รูปห่านใต้วงกลมด่านปัจจุบัน */
+.pb-goose {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 50%;
+    width: 84px;
+    aspect-ratio: 1.55;
+    object-fit: cover;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.pb-goose.at-end {
+    left: auto;
+    right: 50%;
+    transform: none;
+}
+
+/* แถบด่านอยู่ใต้คลื่นด้านบนพอดี ไม่ทับคลื่นและเต่าทอง */
+.progress-container {
+    top: calc(clamp(36px, 10svh, 140px) + 2px) !important;
+}
+
+.progress-info {
+    margin-bottom: 4px !important;
+}
+
+/* ซ่อนแถบด่านไว้จนจัดตำแหน่งเสร็จ (ไม่เห็นแถบแบบเก่าแวบก่อน) */
+.progress-container:not(.pb-ready) {
+    visibility: hidden;
+}
+
+/* ข้อความ "ด่าน x / 5" อยู่กลาง ไม่ชนปุ่มเครื่องคิดเลข/ตั้งค่ามุมขวาบน */
+.progress-info {
+    justify-content: center !important;
+}

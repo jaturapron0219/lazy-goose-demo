@@ -1,0 +1,43 @@
+/* =====================================================
+   basket.css — เกมตะกร้าลูกบอล (บทสัดส่วน และบทร้อยละ)
+   ลูกบอลสี/รูปแบบเดียวกับลูกโป่ง และวางทับขอบกล่องเล็กน้อยทุกขนาดจอ
+===================================================== */
+
+/* ลูกบอลในตะกร้า: สีและรูปแบบเดียวกับลูกโป่งในเกมอัตราส่วน
+   (ไม่มีขอบดำ สีสด ตัวเลขขาวขอบดำ มีเงาด้านล่างและแสงสะท้อน) */
+.basket-area .balloon {
+    border: 3px solid transparent !important;
+    font-size: clamp(15px, 3.4vw, 21px) !important;
+    -webkit-text-stroke: 1.5px var(--ink, #111) !important;
+    text-shadow: 1px 2px 0 rgba(0, 0, 0, 0.12);
+    box-shadow:
+        inset -7px -10px 0 rgba(0, 0, 0, 0.12),
+        inset 7px 7px 0 rgba(255, 255, 255, 0.12),
+        0 4px 0 rgba(0, 0, 0, 0.12) !important;
+}
+
+.basket-area .balloon.red    { background: #ff3038 !important; }
+.basket-area .balloon.green  { background: #00bd68 !important; }
+.basket-area .balloon.purple { background: #2563eb !important; }
+
+/* ขนาดลูกบอล/ตัวเลขคิดจากด้านที่สั้นกว่าของจอ (ไม่บวมตอนจอแนวนอน) */
+.basket-area .balloon {
+    width: clamp(56px, 16vmin, 88px) !important;
+    font-size: clamp(13px, 3.4vmin, 21px) !important;
+}
+
+/* ลูกบอลวางทับขอบบนของกล่องเล็กน้อยทุกขนาดจอ
+   ขอบบนกล่อง = 100% - 60px (bottom) - 23% (ความสูงกล่อง) ; ให้ลูกบอลจมลงไป 15% ของขนาดลูก */
+.basket-area {
+    --ball: clamp(56px, 16vmin, 88px);
+}
+
+.basket-area .balloon {
+    width: var(--ball) !important;
+}
+
+.basket-area .balloon.red,
+.basket-area .balloon.green,
+.basket-area .balloon.purple {
+    top: calc(77% - 60px - var(--ball) * 0.85) !important;
+}
