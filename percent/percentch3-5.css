@@ -1,0 +1,15 @@
+/* percentch3-5 : การคำนวณเกี่ยวกับร้อยละ */
+
+.title-text.big {
+    font-size: 2.3em;
+}
+
+.review {
+    width: 70%;
+    font-weight: 600;
+}
+
+/* หัวข้อชิดใต้ห่าน (กึ่งกลางเหมือนเดิม) */
+.stack > .goose {
+    margin-bottom: -2em;
+}

@@ -1,0 +1,9 @@
+# Netlify: เก็บไฟล์ไว้ในเครื่องผู้ใช้ เปลี่ยนหน้าได้เร็วโดยไม่ต้องโหลด/ตรวจไฟล์ซ้ำทุกครั้ง
+# (ไฟล์ CSS/JS/รูป ถูกเรียกด้วย ?v=วันที่ เมื่ออัปเดตเว็บ เวอร์ชันใหม่จะถูกโหลดเอง)
+/common/*
+  Cache-Control: public, max-age=31536000, immutable
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+/pics/*
+  Cache-Control: public, max-age=31536000, immutable
+# ไฟล์ CSS/JS ของแต่ละบท และหน้า HTML ใช้ค่าเริ่มต้นของ Netlify (ตรวจเวอร์ชันใหม่ทุกครั้ง)
