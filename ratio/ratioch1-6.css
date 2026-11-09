@@ -1,0 +1,47 @@
+/* ratioch1-6 : อัตราส่วนที่เท่ากัน (ขนมปัง) */
+
+.bread-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 0.6em;
+    width: 100%;
+}
+
+.bread-pic {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.bread-pic svg {
+    width: 3.9em;
+    margin-left: -1.3em;
+}
+
+.bread-pic svg:first-child {
+    margin-left: 0;
+}
+
+.price {
+    font-weight: 600;
+}
+
+.coins {
+    display: flex;
+    gap: 0.15em;
+}
+
+.bread-cap {
+    margin-top: -0.4em;
+    font-size: 0.92em;
+    font-weight: 600;
+}
+
+/* กรอบรวมแถวขนมปังทั้ง 3 แถว (แบบเดียวกับกล่องข้อความด้านล่าง) */
+.bread-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35em;
+    width: 100%;
+}

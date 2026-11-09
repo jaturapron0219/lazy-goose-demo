@@ -1,0 +1,24 @@
+/* ratioch1-5 : หัวข้อย่อยของบทอัตราส่วน */
+
+.topic-link {
+    width: 92%;
+    text-decoration: none;
+    font-size: 1.45em;
+    transition: transform 0.15s ease;
+}
+
+.topic-link:hover {
+    transform: translateY(-3px);
+    background: #7bb369;
+}
+
+/* ห่านใหญ่ขึ้น ปุ่มชิดใต้ห่าน */
+.stack > .goose {
+    width: clamp(240px, 82cqw, 340px);
+    margin-bottom: -2.6em;
+}
+
+.topic-link {
+    width: min(92%, 340px);
+    font-size: clamp(16px, 1.45em, 22px);
+}

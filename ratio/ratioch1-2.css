@@ -1,0 +1,24 @@
+/* ratioch1-2 : Flashcard อัตราส่วนลูกอมต่อเค้ก
+   (สไตล์หลักอยู่ใน ../common/lesson.css) */
+
+/* รูปลูกอมและเค้กขนาดใหญ่ขึ้น */
+.flashcard .icon-row {
+    flex-wrap: nowrap;   /* ลูกอม 3 เม็ดกับเค้กอยู่แถวเดียวกันเสมอ */
+    gap: 0.4em;
+    margin: 0.6em 0 0.3em;
+}
+
+.flashcard .icon-row svg {
+    width: 5.2em;
+    min-width: 0;
+    flex-shrink: 1;
+}
+
+.flashcard .icon-row svg:last-child {
+    width: 5.6em;
+}
+
+/* ข้อความโจทย์ใช้ตัวอักษรแบบเดียวกับตัวเลขด้านหลังการ์ด (ขาว ขอบดำ) */
+.card-question {
+    font-size: 1.85em;
+}

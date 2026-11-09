@@ -1,0 +1,51 @@
+/* ratioch1-9 : อัตราส่วนหลาย ๆ จำนวน (ปากกา ยางลบ สมุด) */
+
+.stuff svg {
+    width: 3.3em;
+}
+
+.stuff .gap {
+    width: 1.2em;
+}
+
+.stuff.small svg {
+    width: 2.6em;
+}
+
+.big-num {
+    -webkit-text-stroke: 1px var(--ink);
+    paint-order: stroke fill;
+}
+
+/* รูปทั้งแถวอยู่บรรทัดเดียวเสมอ ถ้าที่ไม่พอให้รูปย่อลงเอง */
+.stuff {
+    flex-wrap: nowrap;
+}
+
+.stuff svg {
+    min-width: 0;
+    flex-shrink: 1;
+}
+
+/* แถวรูปกว้างไม่เกินกรอบเนื้อหา รูปย่อตามพื้นที่ ไม่ตกขอบเมื่อขยายจอ */
+.icon-row.stuff {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+}
+
+.icon-row.stuff > svg {
+    flex: 0 1 3.3em;
+    width: auto;
+    height: auto;
+    min-width: 0;
+}
+
+.icon-row.stuff.small > svg {
+    flex-basis: 2.6em;
+}
+
+.icon-row.stuff > .gap {
+    flex: 0 1 1.2em;
+    min-width: 0.3em;
+}

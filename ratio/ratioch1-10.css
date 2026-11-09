@@ -1,0 +1,77 @@
+/* ratioch1-10 : อัตราส่วนของจำนวนสามจำนวน a : b : c */
+
+.abc-row {
+    /* กล่อง a : b อยู่กึ่งกลางหน้า ส่วนคำว่า "ได้เป็น" อยู่ด้านซ้ายของกล่อง */
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: start;
+    column-gap: 0.8em;
+    width: 100%;
+}
+
+.abc-lead {
+    justify-self: end;
+    margin-top: 0.4em;
+}
+
+.abc-box {
+    width: auto;
+    padding: 0.4em 1.8em;
+    font-size: 1.8em;
+    font-weight: 700;
+    line-height: 1.35;
+    -webkit-text-stroke: 1px var(--ink);
+    paint-order: stroke fill;
+}
+
+.abc-box p {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    column-gap: 0.3em;
+}
+
+.abc-box p > :first-child {
+    justify-self: end;
+}
+
+.abc-box p > :last-child {
+    justify-self: start;
+}
+
+/* เครื่องหมาย : ข้างในสีขาว ขอบดำ */
+.abc-box .colon {
+    color: #fff;
+    -webkit-text-stroke: 1.4px var(--ink);
+    paint-order: stroke fill;
+}
+
+/* "ได้เป็น" อยู่กึ่งกลาง แล้วกล่อง a : b / b : c / a : c ขึ้นบรรทัดใหม่ */
+.abc-row {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4em;
+}
+
+.abc-lead {
+    margin-top: 0 !important;
+    justify-self: auto;
+}
+
+/* a : b, b : c และ a : c ในบรรทัดเดียว */
+.abc-box .abc-line {
+    display: block !important;
+    white-space: nowrap;
+    font-size: 0.8em;
+}
+
+.abc-box {
+    padding: 0.35em 1em !important;
+}
+
+.abc-box .sep {
+    color: var(--ink);
+    -webkit-text-stroke: 0;
+    font-size: 0.75em;
+}
