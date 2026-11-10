@@ -9,5 +9,5 @@
 // =====================================================
 
 window.SCORE_CONFIG = {
-    googleSheetUrl: ""
+    googleSheetUrl: "https://script.google.com/macros/s/AKfycbzN7GcCZJXTDnUx8oquXbBLAuVfCr2L1mJK6Uvcgn4F3WlBAumId_VweeRmAtRa7JCF/exec"
 };
